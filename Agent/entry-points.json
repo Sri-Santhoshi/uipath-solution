@@ -1,0 +1,49 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "/content/agent.json",
+      "type": "agent",
+      "uniqueId": "1fbc55d3-0072-4845-a54c-52038da234d1",
+      "input": {
+        "type": "object",
+        "required": [
+          "invoicedate",
+          "invoicevendorname",
+          "invoicenumber",
+          "invoiceamount"
+        ],
+        "properties": {
+          "invoicedate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "invoicevendorname": {
+            "type": "string"
+          },
+          "invoicenumber": {
+            "type": "string"
+          },
+          "invoiceamount": {
+            "type": "number"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status of invoice(approve or review)"
+          },
+          "reason": {
+            "type": "string",
+            "description": "reason for the status decision"
+          }
+        },
+        "title": "Outputs"
+      }
+    }
+  ]
+}

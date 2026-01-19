@@ -1,0 +1,130 @@
+{
+  "version": "2.0",
+  "resources": [
+    {
+      "resource": "EventTrigger",
+      "key": "030d9d81-79d9-4d38-9d80-167cd75bb4e2",
+      "id": "EventTrigger030d9d81-79d9-4d38-9d80-167cd75bb4e2",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "030d9d81-79d9-4d38-9d80-167cd75bb4e2",
+          "isExpression": false
+        }
+      },
+      "metadata": {
+        "UseConnectionService": "true",
+        "Connector": "uipath-google-drive",
+        "ActivityName": "Start event",
+        "BindingsVersion": "2.2",
+        "ObjectName": "File",
+        "Operation": "FILE_UPDATED",
+        "FilterExpression": "(ParentID == '1hf-58iwNQflb-M16R4c4IYKNem3XNcFr') && ((Extension == 'pdf'))"
+      }
+    },
+    {
+      "resource": "Property",
+      "key": "FILE_UPDATED",
+      "value": {
+        "ParentDriveID": {
+          "defaultValue": "0AKcbI6XYjbQnUk9PVA",
+          "isExpression": false
+        }
+      },
+      "id": "Property_Event_start",
+      "metadata": {
+        "TriggerCreateParameters": "ParentDriveID",
+        "DebugQueryParameters": "ParentDriveID",
+        "ActivityName": "Start event",
+        "BindingsVersion": "2.2",
+        "ObjectName": "File",
+        "ParentResourceKey": "EventTrigger.030d9d81-79d9-4d38-9d80-167cd75bb4e2"
+      }
+    },
+    {
+      "resource": "Connection",
+      "key": "030d9d81-79d9-4d38-9d80-167cd75bb4e2",
+      "id": "Connection030d9d81-79d9-4d38-9d80-167cd75bb4e2",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "030d9d81-79d9-4d38-9d80-167cd75bb4e2",
+          "isExpression": false,
+          "displayName": "uipath-google-drive connection"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Start event",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "uipath-google-drive connection",
+        "UseConnectionService": "true",
+        "Connector": "uipath-google-drive"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "RPA Workflow",
+      "id": "processRPA Workflow",
+      "value": {
+        "folderPath": {
+          "isExpression": false,
+          "displayName": "Folder path"
+        },
+        "name": {
+          "defaultValue": "RPA Workflow",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Download and extract invoices",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Agent",
+      "id": "processAgent",
+      "value": {
+        "folderPath": {
+          "isExpression": false,
+          "displayName": "Folder path"
+        },
+        "name": {
+          "defaultValue": "Agent",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Invoice decision agent",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
+      }
+    },
+    {
+      "resource": "app",
+      "key": "SimpleApprovalApp",
+      "id": "appSimpleApprovalApp",
+      "value": {
+        "folderPath": {
+          "isExpression": false,
+          "displayName": "Folder path"
+        },
+        "name": {
+          "defaultValue": "SimpleApprovalApp",
+          "isExpression": false,
+          "displayName": "App name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Review",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    }
+  ]
+}

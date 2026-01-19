@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:uipath="http://uipath.org/schema/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="x-uipath-initial-diagram" targetNamespace="http://www.omg.org/spec/BPMN/20100524/MODEL" exporter="UiPath Studio Web (https://uipath.com)" exporterVersion="e3c7f69d">
+  <bpmn:process id="Process_1" name="Process" isExecutable="false">
+    <bpmn:extensionElements>
+      <uipath:variables version="v1">
+        <uipath:inputOutput id="error2" name="Error" type="jsonSchema" elementId="Activity_8RFBbz"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="status" name="status" type="string" elementId="Activity_8RFBbz" />
+        <uipath:inputOutput id="reason" name="reason" type="string" elementId="Activity_8RFBbz" />
+        <uipath:inputOutput id="action" name="Action" type="string" elementId="Activity_2kkKo8" />
+        <uipath:inputOutput id="error3" name="Error" type="jsonSchema" elementId="Activity_2kkKo8"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="comment" name="Comment" type="string" elementId="Activity_2kkKo8" />
+        <uipath:inputOutput id="response3" name="response" type="jsonSchema" elementId="Activity_wPq5zm"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"kind":{"title":"Resource type identifier","type":"string","description":"Indicates the type of resource being referenced."},"name":{"title":"New name","type":"string","description":"The name given to the moved file or folder. If left blank, the moved file or folder will retain the original name"},"id":{"title":"Unique identifier","type":"string","description":"A unique identifier for the file or folder."},"mimeType":{"title":"Mime type","type":"string","description":"Specifies the MIME type of the file or folder."}},"definitions":{}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="error" name="Error" type="jsonSchema" elementId="Activity_K1XYaX"><![CDATA[{"type":"object","properties":{"code":{"type":"string"},"message":{"type":"string"},"detail":{"type":"string"},"category":{"type":"string"},"status":{"type":"number"}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="invoicedate" name="invoicedate" type="string" elementId="Activity_K1XYaX" />
+        <uipath:inputOutput id="invoicenumber" name="invoicenumber" type="string" elementId="Activity_K1XYaX" />
+        <uipath:inputOutput id="invoiceamount" name="invoiceamount" type="number" elementId="Activity_K1XYaX" />
+        <uipath:inputOutput id="invoicevendorname" name="invoicevendorname" type="string" elementId="Activity_K1XYaX" />
+        <uipath:inputOutput id="id" name="ID" type="string" elementId="Event_start" />
+        <uipath:inputOutput id="response" name="response" type="jsonSchema" elementId="Event_start"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ParentID":{"title":"In location","type":"string"},"Owner":{"title":"Owner","$ref":"#/definitions/Owner"},"ParentDriveID":{"title":"Drive","type":"string"},"Shared":{"title":"Shared","type":"boolean"},"URL":{"title":"Url","type":"string"},"Extension":{"title":"File extension","type":"string"},"Type":{"title":"Type","type":"string"},"isFolder":{"title":"Is folder","type":"boolean"},"MIMEType":{"title":"Mime type","type":"string"},"FullName":{"title":"Name","type":"string"},"ID":{"title":"Id","type":"string"}},"definitions":{"Owner":{"type":"object","properties":{"Name":{"title":"Owner name","type":"string"},"ID":{"title":"Owner ID","type":"string"},"Email":{"title":"Created by(email)","type":"string"}}}}}]]></uipath:inputOutput>
+        <uipath:inputOutput id="filename" name="filename" type="string" elementId="Event_start" custom="true" />
+        <uipath:inputOutput id="fileurl" name="fileurl" type="string" elementId="Event_start" custom="true" />
+        <uipath:inputOutput id="fileid" name="fileid" type="string" elementId="Event_start" custom="true" />
+        <uipath:inputOutput id="response2" name="response" type="jsonSchema" elementId="Activity_zTqLLo"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"kind":{"title":"Resource type identifier","type":"string","description":"Indicates the type of resource being referenced."},"name":{"title":"New name","type":"string","description":"The name given to the moved file or folder. If left blank, the moved file or folder will retain the original name"},"id":{"title":"Unique identifier","type":"string","description":"A unique identifier for the file or folder."},"mimeType":{"title":"Mime type","type":"string","description":"Specifies the MIME type of the file or folder."}},"definitions":{}}]]></uipath:inputOutput>
+      </uipath:variables>
+      <uipath:bindings version="v1">
+        <uipath:binding id="balRAKBgV" name="uipath-google-drive connection" type="string" default="030d9d81-79d9-4d38-9d80-167cd75bb4e2" resource="Connection" resourceKey="030d9d81-79d9-4d38-9d80-167cd75bb4e2" propertyAttribute="ConnectionId" />
+        <uipath:binding id="bwJa5h66x" name="FolderKey" type="string" default="3b49c883-2d4f-4c34-8201-4ea6af77456a" resource="Connection" resourceKey="030d9d81-79d9-4d38-9d80-167cd75bb4e2" propertyAttribute="folderKey" />
+        <uipath:binding id="bkXXxZQ5E" name="folderPath" type="string" resource="process" resourceKey="RPA Workflow" propertyAttribute="folderPath" />
+        <uipath:binding id="bp3qdzJkR" name="name" type="string" default="RPA Workflow" resource="process" resourceKey="RPA Workflow" propertyAttribute="name" />
+        <uipath:binding id="bJ19XA6YY" name="folderPath" type="string" resource="process" resourceSubType="Agent" resourceKey="Agent" propertyAttribute="folderPath" />
+        <uipath:binding id="bwJ7iOTHN" name="name" type="string" default="Agent" resource="process" resourceSubType="Agent" resourceKey="Agent" propertyAttribute="name" />
+        <uipath:binding id="bSeTs59yM" name="folderPath" type="string" resource="app" resourceKey="SimpleApprovalApp" propertyAttribute="folderPath" />
+        <uipath:binding id="bi2zmRCEu" name="name" type="string" default="SimpleApprovalApp" resource="app" resourceKey="SimpleApprovalApp" propertyAttribute="name" />
+      </uipath:bindings>
+      <uipath:migrationVersion version="8" />
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="Event_start" name="Start event">
+      <bpmn:extensionElements>
+        <uipath:entryPointId value="bbac4ea2-0b92-4b07-8f40-261b80a487e5" />
+        <uipath:event version="v1">
+          <uipath:type value="Intsvc.EventTrigger" version="v1" />
+          <uipath:context>
+            <uipath:input name="connectorKey" type="string" value="uipath-google-drive" />
+            <uipath:input name="connection" type="string" value="=bindings.balRAKBgV" />
+            <uipath:input name="folderKey" type="string" value="=bindings.bwJa5h66x" />
+            <uipath:input name="resourceKey" type="string" value="030d9d81-79d9-4d38-9d80-167cd75bb4e2" />
+            <uipath:input name="operation" type="string" value="FILE_UPDATED" />
+            <uipath:input name="objectName" type="string" value="File" />
+            <uipath:input name="metadata" type="json"><![CDATA[{"designTimeMetadata":{"connectorLogoUrl":"https://cloud.uipath.com/elements_/scaleunit_/58cb4f17-4581-4130-a2ae-52448b37dc03/v3/element/elements/uipath-google-drive/image","activityDisplayName":"File Updated","activityDescription":"Triggers when an existing file is updated in the drive.","activityHelpUrlTemplate":"https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-google-drive-File-Updated","activityConfig":{"isCurated":true,"operation":"FILE_UPDATED"},"designTimeLookups":{"ParentDriveID":[{"id":"0AKcbI6XYjbQnUk9PVA","title":"My Drive"}],"ParentID":[{"id":"1hf-58iwNQflb-M16R4c4IYKNem3XNcFr","title":"invoices"}]},"triggerActivity":{"eventFields":{"ParentID":"1hf-58iwNQflb-M16R4c4IYKNem3XNcFr"},"filterBuilder":{"expression":"(Extension == 'pdf')"}}},"metadataState":{"jsonSchema":{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"ParentID":{"title":"In location","type":"string"},"Owner":{"title":"Owner","$ref":"#/definitions/Owner"},"ParentDriveID":{"title":"Drive","type":"string"},"Shared":{"title":"Shared","type":"boolean"},"URL":{"title":"Url","type":"string"},"Extension":{"title":"File extension","type":"string"},"Type":{"title":"Type","type":"string"},"isFolder":{"title":"Is folder","type":"boolean"},"MIMEType":{"title":"Mime type","type":"string"},"FullName":{"title":"Name","type":"string"},"ID":{"title":"Id","type":"string"}},"definitions":{"Owner":{"type":"object","properties":{"Name":{"title":"Owner name","type":"string"},"ID":{"title":"Owner ID","type":"string"},"Email":{"title":"Created by(email)","type":"string"}}}}}},"telemetryData":{"operation":"FILE_UPDATED","objectName":"File","connectorKey":"uipath-google-drive","connectorName":"Google Drive","primaryKeyName":"ID"},"inputMetadata":{},"errorState":{"hasError":false}}]]></uipath:input>
+            <uipath:input name="activityConfigurationVersion" type="string" value="v1" />
+          </uipath:context>
+          <uipath:input name="body" type="json" target="body"><![CDATA[{"parameters":{"ParentDriveID":"0AKcbI6XYjbQnUk9PVA"},"filters":{"expression":"(ParentID == '1hf-58iwNQflb-M16R4c4IYKNem3XNcFr') && ((Extension == 'pdf'))","variables":{}}}]]></uipath:input>
+          <uipath:output name="ID" type="string" source="=response.ID" var="id" />
+          <uipath:output name="response" type="jsonSchema" source="=response" var="response" />
+          <uipath:output name="filename" type="string" source="=vars.response.FullName" var="filename" custom="true" />
+          <uipath:output name="fileurl" type="string" source="fileurl" var="fileurl" custom="true" />
+          <uipath:output name="fileid" type="string" source="fileid" var="fileid" custom="true" />
+        </uipath:event>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>edge_Event_start-Activity_K1XYaX</bpmn:outgoing>
+      <bpmn:messageEventDefinition />
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_K1XYaX" name="Download and extract invoices">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bp3qdzJkR" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bkXXxZQ5E" />
+            <uipath:input name="_label" type="string" value="RPA Workflow" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"Fileurl":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"Fileurl":"=vars.fileurl"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error" />
+          <uipath:output name="invoicedate" type="string" source="=invoicedate" var="invoicedate" />
+          <uipath:output name="invoicevendorname" type="string" source="=invoicevendorname" var="invoicevendorname" />
+          <uipath:output name="invoiceamount" type="number" source="=invoiceamount" var="invoiceamount" />
+          <uipath:output name="invoicenumber" type="string" source="=invoicenumber" var="invoicenumber" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Event_start-Activity_K1XYaX</bpmn:incoming>
+      <bpmn:outgoing>edge_Activity_K1XYaX-Activity_8RFBbz</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_8RFBbz" name="Invoice decision agent">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Orchestrator.StartAgentJob" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bwJ7iOTHN" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bJ19XA6YY" />
+            <uipath:input name="_label" type="string" value="Agent" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"invoicedate":{"type":"string"},"invoicevendorname":{"type":"string"},"invoicenumber":{"type":"string"},"invoiceamount":{"type":"number"}},"required":[]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="JobArguments" type="json" target="bodyField"><![CDATA[{"invoicedate":"=vars.invoicedate","invoicevendorname":"=vars.invoicevendorname","invoicenumber":"=vars.invoicenumber","invoiceamount":"=vars.invoiceamount"}]]></uipath:input>
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error2" />
+          <uipath:output name="status" type="string" source="=status" var="status" />
+          <uipath:output name="reason" type="string" source="=reason" var="reason" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Activity_K1XYaX-Activity_8RFBbz</bpmn:incoming>
+      <bpmn:outgoing>edge_Activity_8RFBbz-Gateway_f4yW1u</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_f4yW1u" name="Approve orrReview">
+      <bpmn:incoming>edge_Activity_8RFBbz-Gateway_f4yW1u</bpmn:incoming>
+      <bpmn:outgoing>edge_Gateway_f4yW1u-Activity_zTqLLo</bpmn:outgoing>
+      <bpmn:outgoing>edge_Gateway_f4yW1u-Activity_2kkKo8</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Activity_zTqLLo" name="Approve">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Intsvc.ActivityExecution" version="v1" />
+          <uipath:context>
+            <uipath:input name="connectorKey" type="string" value="uipath-google-drive" />
+            <uipath:input name="connection" type="string" value="=bindings.balRAKBgV" />
+            <uipath:input name="folderKey" type="string" value="=bindings.bwJa5h66x" />
+            <uipath:input name="resourceKey" type="string" value="030d9d81-79d9-4d38-9d80-167cd75bb4e2" />
+            <uipath:input name="operation" type="string" value="MoveFileorFolderV2" />
+            <uipath:input name="objectName" type="string" value="moveFileorFolderV2" />
+            <uipath:input name="method" type="string" value="PATCH" />
+            <uipath:input name="path" type="string" value="/moveFileorFolderV2" />
+            <uipath:input name="metadata" type="json"><![CDATA[{"designTimeMetadata":{"connectorLogoUrl":"https://cloud.uipath.com/elements_/scaleunit_/58cb4f17-4581-4130-a2ae-52448b37dc03/v3/element/elements/uipath-google-drive/image","activityDesignerVersion":"2","activityDisplayName":"Move File or Folder","activityDescription":"Move File or Folder to a specific location","activityHelpUrlTemplate":"https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-google-drive-Move-File-Or-Folder","activityConfig":{"isCurated":true,"operation":null},"designTimeLookups":{"addParents":[{"id":"13TMUOGsqxmRfrbWY2WEMZQbpShJrUqw3","title":"Approved"}]}},"metadataState":{"jsonSchema":{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"kind":{"title":"Resource type identifier","type":"string","description":"Indicates the type of resource being referenced."},"name":{"title":"New name","type":"string","description":"The name given to the moved file or folder. If left blank, the moved file or folder will retain the original name"},"id":{"title":"Unique identifier","type":"string","description":"A unique identifier for the file or folder."},"mimeType":{"title":"Mime type","type":"string","description":"Specifies the MIME type of the file or folder."}},"definitions":{}}},"telemetryData":{"operationType":"Update","objectName":"moveFileorFolderV2","objectDisplayName":"Move File or Folder","connectorKey":"uipath-google-drive","connectorName":"Google Drive","primaryKeyName":""},"inputMetadata":{},"errorState":{"hasError":false}}]]></uipath:input>
+            <uipath:input name="activityConfigurationVersion" type="string" value="v1" />
+          </uipath:context>
+          <uipath:input name="alreadyExists" type="string" value="replace" target="query" />
+          <uipath:input name="fileId" type="string" value="=vars.fileid" target="query" />
+          <uipath:input name="addParents" type="string" value="13TMUOGsqxmRfrbWY2WEMZQbpShJrUqw3" target="query" />
+          <uipath:output name="response" type="jsonSchema" source="=response" var="response2" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Gateway_f4yW1u-Activity_zTqLLo</bpmn:incoming>
+      <bpmn:incoming>edge_lkiDyV</bpmn:incoming>
+    </bpmn:sendTask>
+    <bpmn:userTask id="Activity_2kkKo8" name="Review">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Actions.HITL" version="v2" />
+          <uipath:context>
+            <uipath:input name="name" type="string" value="=bindings.bi2zmRCEu" />
+            <uipath:input name="folderPath" type="string" value="=bindings.bSeTs59yM" />
+            <uipath:input name="_label" type="string" value="SimpleApprovalApp" />
+            <uipath:input name="taskTitle" type="string" value="Review" />
+            <uipath:input name="recipient" type="json" />
+            <uipath:input name="priority" type="string" />
+            <uipath:input name="labels" type="string" />
+            <uipath:input name="actionCatalogName" type="string" />
+            <uipath:input name="enableActionableNotifications" type="boolean" value="false" />
+            <uipath:inputSchema type="jsonSchema"><![CDATA[{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"Content":{"type":"string"},"Comment":{"type":"string"}},"required":[]}]]></uipath:inputSchema>
+          </uipath:context>
+          <uipath:input name="HitlTaskArguments" type="json" target="bodyField"><![CDATA[{"Content":"=\"Vendor name:\" + vars.invoicevendorname + \"\\n\" +\"Invoice #:\" + vars.invoicenumber + \"\\n\" +\"Date: \" + vars.invoicedate + \"\\n\" + \"Total: $\" + vars.invoiceamount + \"\\n\" +\"Status: \" + vars.status + \"\\n\" +\"Reason: \" +vars.reason","Comment":null}]]></uipath:input>
+          <uipath:output name="Action" type="string" source="=Action" var="action" />
+          <uipath:output name="Error" type="jsonSchema" source="=Error" var="error3" />
+          <uipath:output name="Comment" type="string" source="=Comment" var="comment" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Gateway_f4yW1u-Activity_2kkKo8</bpmn:incoming>
+      <bpmn:outgoing>edge_Activity_2kkKo8-Gateway_dpo45I</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_dpo45I">
+      <bpmn:incoming>edge_Activity_2kkKo8-Gateway_dpo45I</bpmn:incoming>
+      <bpmn:outgoing>edge_lkiDyV</bpmn:outgoing>
+      <bpmn:outgoing>edge_Gateway_dpo45I-Activity_wPq5zm</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sendTask id="Activity_wPq5zm" name="Rejected">
+      <bpmn:extensionElements>
+        <uipath:activity version="v1">
+          <uipath:type value="Intsvc.ActivityExecution" version="v1" />
+          <uipath:context>
+            <uipath:input name="connectorKey" type="string" value="uipath-google-drive" />
+            <uipath:input name="connection" type="string" value="=bindings.balRAKBgV" />
+            <uipath:input name="folderKey" type="string" value="=bindings.bwJa5h66x" />
+            <uipath:input name="resourceKey" type="string" value="030d9d81-79d9-4d38-9d80-167cd75bb4e2" />
+            <uipath:input name="operation" type="string" value="MoveFileorFolderV2" />
+            <uipath:input name="objectName" type="string" value="moveFileorFolderV2" />
+            <uipath:input name="method" type="string" value="PATCH" />
+            <uipath:input name="path" type="string" value="/moveFileorFolderV2" />
+            <uipath:input name="metadata" type="json"><![CDATA[{"designTimeMetadata":{"connectorLogoUrl":"https://cloud.uipath.com/elements_/scaleunit_/58cb4f17-4581-4130-a2ae-52448b37dc03/v3/element/elements/uipath-google-drive/image","activityDesignerVersion":"2","activityDisplayName":"Move File or Folder","activityDescription":"Move File or Folder to a specific location","activityHelpUrlTemplate":"https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-google-drive-Move-File-Or-Folder","activityConfig":{"isCurated":true,"operation":null},"designTimeLookups":{"addParents":[{"id":"1BeOLLqiUx-PWa0GpDiSxJCq6vQvJ3l3H","title":"Rejected"}]}},"metadataState":{"jsonSchema":{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"kind":{"title":"Resource type identifier","type":"string","description":"Indicates the type of resource being referenced."},"name":{"title":"New name","type":"string","description":"The name given to the moved file or folder. If left blank, the moved file or folder will retain the original name"},"id":{"title":"Unique identifier","type":"string","description":"A unique identifier for the file or folder."},"mimeType":{"title":"Mime type","type":"string","description":"Specifies the MIME type of the file or folder."}},"definitions":{}}},"telemetryData":{"operationType":"Update","objectName":"moveFileorFolderV2","objectDisplayName":"Move File or Folder","connectorKey":"uipath-google-drive","connectorName":"Google Drive","primaryKeyName":""},"inputMetadata":{},"errorState":{"hasError":false}}]]></uipath:input>
+            <uipath:input name="activityConfigurationVersion" type="string" value="v1" />
+          </uipath:context>
+          <uipath:input name="alreadyExists" type="string" value="replace" target="query" />
+          <uipath:input name="fileId" type="string" value="=vars.fileid" target="query" />
+          <uipath:input name="addParents" type="string" value="1BeOLLqiUx-PWa0GpDiSxJCq6vQvJ3l3H" target="query" />
+          <uipath:output name="response" type="jsonSchema" source="=response" var="response3" />
+        </uipath:activity>
+      </bpmn:extensionElements>
+      <bpmn:incoming>edge_Gateway_dpo45I-Activity_wPq5zm</bpmn:incoming>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="edge_Event_start-Activity_K1XYaX" sourceRef="Event_start" targetRef="Activity_K1XYaX" />
+    <bpmn:sequenceFlow id="edge_Activity_K1XYaX-Activity_8RFBbz" sourceRef="Activity_K1XYaX" targetRef="Activity_8RFBbz" />
+    <bpmn:sequenceFlow id="edge_Activity_8RFBbz-Gateway_f4yW1u" sourceRef="Activity_8RFBbz" targetRef="Gateway_f4yW1u" />
+    <bpmn:sequenceFlow id="edge_Gateway_f4yW1u-Activity_zTqLLo" name="Approved" sourceRef="Gateway_f4yW1u" targetRef="Activity_zTqLLo">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=vars.status=="approve"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_Gateway_f4yW1u-Activity_2kkKo8" name="Review" sourceRef="Gateway_f4yW1u" targetRef="Activity_2kkKo8">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=vars.status == "review"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_Activity_2kkKo8-Gateway_dpo45I" sourceRef="Activity_2kkKo8" targetRef="Gateway_dpo45I" />
+    <bpmn:sequenceFlow id="edge_lkiDyV" name="Approved" sourceRef="Gateway_dpo45I" targetRef="Activity_zTqLLo">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=vars.action == "approve"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="edge_Gateway_dpo45I-Activity_wPq5zm" name="Rejected" sourceRef="Gateway_dpo45I" targetRef="Activity_wPq5zm">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=vars.action =="rejected"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="S_Event_start" bpmnElement="Event_start">
+        <dc:Bounds x="260" y="200" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="260" y="241" width="36" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_K1XYaX" bpmnElement="Activity_K1XYaX">
+        <dc:Bounds x="344" y="178" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="344" y="263" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_8RFBbz" bpmnElement="Activity_8RFBbz">
+        <dc:Bounds x="492" y="178" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="492" y="263" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Gateway_f4yW1u" bpmnElement="Gateway_f4yW1u">
+        <dc:Bounds x="640" y="193" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="640" y="248" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_zTqLLo" bpmnElement="Activity_zTqLLo">
+        <dc:Bounds x="738" y="178" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="738" y="263" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_2kkKo8" bpmnElement="Activity_2kkKo8">
+        <dc:Bounds x="738" y="274" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="738" y="359" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Gateway_dpo45I" bpmnElement="Gateway_dpo45I">
+        <dc:Bounds x="886" y="289" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="886" y="344" width="50" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="S_Activity_wPq5zm" bpmnElement="Activity_wPq5zm">
+        <dc:Bounds x="984" y="274" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="984" y="359" width="100" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Event_start-Activity_K1XYaX" bpmnElement="edge_Event_start-Activity_K1XYaX">
+        <di:waypoint x="296" y="218" />
+        <di:waypoint x="344" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Activity_K1XYaX-Activity_8RFBbz" bpmnElement="edge_Activity_K1XYaX-Activity_8RFBbz">
+        <di:waypoint x="444" y="218" />
+        <di:waypoint x="492" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Activity_8RFBbz-Gateway_f4yW1u" bpmnElement="edge_Activity_8RFBbz-Gateway_f4yW1u">
+        <di:waypoint x="592" y="218" />
+        <di:waypoint x="640" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Gateway_f4yW1u-Activity_zTqLLo" bpmnElement="edge_Gateway_f4yW1u-Activity_zTqLLo">
+        <di:waypoint x="690" y="218" />
+        <di:waypoint x="738" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Gateway_f4yW1u-Activity_2kkKo8" bpmnElement="edge_Gateway_f4yW1u-Activity_2kkKo8">
+        <di:waypoint x="665" y="243" />
+        <di:waypoint x="665" y="314" />
+        <di:waypoint x="738" y="314" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Activity_2kkKo8-Gateway_dpo45I" bpmnElement="edge_Activity_2kkKo8-Gateway_dpo45I">
+        <di:waypoint x="838" y="314" />
+        <di:waypoint x="886" y="314" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_lkiDyV" bpmnElement="edge_lkiDyV">
+        <di:waypoint x="911" y="289" />
+        <di:waypoint x="911" y="218" />
+        <di:waypoint x="838" y="218" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_edge_Gateway_dpo45I-Activity_wPq5zm" bpmnElement="edge_Gateway_dpo45I-Activity_wPq5zm">
+        <di:waypoint x="936" y="314" />
+        <di:waypoint x="984" y="314" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

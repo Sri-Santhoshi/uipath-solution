@@ -1,0 +1,18 @@
+{
+  "version": "3.0.0.0",
+  "bundleHash": "ohCpGZImRE243HEVSLmU8qV3MK7lgg3ATHphMudFDE",
+  "addedAssemblyNames": [],
+  "discardedAssemblyNames": [],
+  "discardedAssemblyReplacements": {},
+  "assembliesJitInfo": {
+    "ExtendedExtractionRe.Rk0kl1vx6NJ1pjQO02FhD9B4": {
+      "createdAt": "2026-01-19T07:09:52.5450161+00:00",
+      "providerName": "CustomEntities",
+      "rootNamespace": "UiPath.IntelligentOCR.StudioWeb.Activities.SWEntities.ExtendedExtractionResultsForDocumentData.Invoices.Bundle",
+      "typeNames": [
+        "Items",
+        "Invoices"
+      ]
+    }
+  }
+}
